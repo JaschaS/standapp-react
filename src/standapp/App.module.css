@@ -6,4 +6,8 @@ html {
     --weißer-als-weiß: #FFFFFF;
     --audi-gray: #666666;
     --dark-gray: #979797;
+
+    --semi-bold: 600;
+    --font-spacing: 0.25px;
+    --font-family: inter;
 }
