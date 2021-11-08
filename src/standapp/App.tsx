@@ -2,6 +2,7 @@ import React from 'react';
 import './App.module.css';
 import { H1, H2, H3, H4, H5 } from './components/base/Header';
 import { Copy1, Copy2, Copy3 } from './components/base/Copy';
+import { Container } from './components/base/Container';
 
 export default function App() {
   return (
@@ -16,6 +17,11 @@ export default function App() {
       <Copy1>Hey, this is Jascha</Copy1>
       <Copy2>Hey, this is Jascha</Copy2>
       <Copy3>Hey, this is Jascha</Copy3>
+
+      <Container>
+        <H1>Wrapped by a Container</H1>
+      </Container>
+
     </div>
   );
 }
