@@ -5,6 +5,8 @@ import { Copy1, Copy2, Copy3 } from './components/base/Copy';
 import { Container } from './components/base/Container';
 import { Center } from './components/base/Center';
 import { Button } from './components/base/Button';
+import { Column } from './components/base/Column';
+import { Row } from './components/base/Row';
 
 export default function App() {
   return (
@@ -14,7 +16,6 @@ export default function App() {
       <H3>Hey, this is Jascha</H3>
       <H4>Hey, this is Jascha</H4>
       <H5>Hey, this is Jascha</H5>
-
 
       <Copy1>Hey, this is Jascha</Copy1>
       <Copy2>Hey, this is Jascha</Copy2>
@@ -28,10 +29,21 @@ export default function App() {
         <H1>I am Centered</H1>
       </Center>
 
-      <Button type='primary' text='Continue' />
-      <Button type='secondary' text='Continue' />
-      <Button type='text' text='Continue' />
+      <Button type="primary" text="Continue" />
+      <Button type="secondary" text="Continue" />
+      <Button type="text" text="Continue" />
 
+      <Column>
+        <Button type="primary" text="Continue" />
+        <Button type="secondary" text="Continue" />
+        <Button type="text" text="Continue" />
+      </Column>
+
+      <Row>
+        <Button type="primary" text="Continue" />
+        <Button type="secondary" text="Continue" />
+        <Button type="text" text="Continue" />
+      </Row>
     </div>
   );
 }
