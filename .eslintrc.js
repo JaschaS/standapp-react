@@ -17,7 +17,8 @@ module.exports = {
       "error",
       {
         "singleQuote": true,
-        "trailingComma": "all"
+        "trailingComma": "all",
+        "tabWidth": 4,
       }
     ],
     "@typescript-eslint/explicit-function-return-type": 0,
