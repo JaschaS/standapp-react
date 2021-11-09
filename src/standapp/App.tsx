@@ -4,6 +4,7 @@ import { H1, H2, H3, H4, H5 } from './components/base/Header';
 import { Copy1, Copy2, Copy3 } from './components/base/Copy';
 import { Container } from './components/base/Container';
 import { Center } from './components/base/Center';
+import { Button } from './components/base/Button';
 
 export default function App() {
   return (
@@ -26,6 +27,10 @@ export default function App() {
       <Center>
         <H1>I am Centered</H1>
       </Center>
+
+      <Button type='Primary' text='Continue' />
+      <Button type='Secondary' text='Continue' />
+      <Button type='Text' text='Continue' />
 
     </div>
   );

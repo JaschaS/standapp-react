@@ -1,0 +1,12 @@
+.Primary {
+    color: var(--weißer-als-weiß);
+    background-color: var(--jascha-red);
+    height: 56px;
+    width: 210px;
+    border-radius: 5px;
+}
+
+.Secondary {
+    color: var(--standard-blue);
+    background-color: var(--fifty-shades);
+}
