@@ -1,15 +1,25 @@
 import React from 'react';
 
-export function Column(props: any) {
-  const style = {
-    display: 'grid',
-    gridTemplateRows: `repeat(${props.children.length},
-         auto)`,
-  };
+interface ColumnProps {
+    className?: string;
+    children?: React.ReactNode;
+}
 
-  return (
-    <div className={props.className} style={style}>
-      {props.children}
-    </div>
-  );
+export function Column(props: ColumnProps): JSX.Element {
+    let childrenCount = 0;
+    if (props.children) {
+        childrenCount = React.Children.count(props.children);
+    }
+
+    const style = {
+        display: 'grid',
+        gridTemplateRows: `repeat(${childrenCount},
+         auto)`,
+    };
+
+    return (
+        <div className={props.className} style={style}>
+            {props.children}
+        </div>
+    );
 }

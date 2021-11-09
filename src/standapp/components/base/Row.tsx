@@ -1,16 +1,26 @@
 import React from 'react';
 
-export function Row(props: any) {
-  const style = {
-    display: 'grid',
-    gridTemplateColumns: `repeat(${props.children.length}, auto)`,
-    width: 'fit-content',
-    gridColumnGap: '12px',
-  };
+interface RowProps {
+    className?: string;
+    children?: React.ReactNode;
+}
 
-  return (
-    <div className={props.className} style={style}>
-      {props.children}
-    </div>
-  );
+export function Row(props: RowProps): JSX.Element {
+    let childrenCount = 0;
+    if (props.children) {
+        childrenCount = React.Children.count(props.children);
+    }
+
+    const style = {
+        display: 'grid',
+        gridTemplateColumns: `repeat(${childrenCount}, auto)`,
+        width: 'fit-content',
+        gridColumnGap: '12px',
+    };
+
+    return (
+        <div className={props.className} style={style}>
+            {props.children}
+        </div>
+    );
 }
