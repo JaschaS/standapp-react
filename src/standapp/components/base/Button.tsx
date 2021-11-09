@@ -1,46 +1,55 @@
 import React from "react";
 import { Center } from "./Center";
-import { FiftyShades, JaschaRed, StandardBlue, WeißerAlsWeiß } from "./Colors";
-import { Container } from "./Container";
 import { H5 } from "./Header";
+import styles from "./Button.module.scss"
 
 export interface ButtonProps {
-    type: 'Primary' | 'Secondary' | 'Text';
+    type: 'primary' | 'secondary' | 'text';
     text: string;
     className?: string;
 }
 
 export function Button(props: ButtonProps) {
-    return <Container className={props.className} style={style(props)}>
-        <Center>
-            <H5>{props.text}</H5>
-        </Center>
-    </Container>;
-}
 
-function style(props: ButtonProps) {
-
-    let backgroundColor = undefined;
-    let color = undefined;
-    switch(props.type) {
-        case 'Primary':
-            backgroundColor = JaschaRed;
-            color = WeißerAlsWeiß;
+    let buttonStyle;
+    switch (props.type) {
+        case "primary":
+            buttonStyle  = styles.PrimaryButton;
             break;
-        case 'Secondary':
-            backgroundColor = FiftyShades;
-            color = StandardBlue;
+        case "secondary":
+            buttonStyle = styles.SecondaryButton;
             break;
-        case 'Text':
-            color = StandardBlue;
+        case "text":
+            buttonStyle = styles.TextButton;
             break;
     }
 
-    return {
-        width: '210px',
-        height: '56px',
-        color: color,
-        backgroundColor: backgroundColor,
-        borderRadius: '5px'
-    };
+    return <div className={`${props.className} ${buttonStyle}`} onClick={onClick}>
+        <Center>
+            <H5>{props.text}</H5>
+        </Center>
+    </div>;
+}
+
+function onClick(event: React.MouseEvent<HTMLElement>) {
+    const buttonElement = event.currentTarget;
+
+    const circle = document.createElement("span");
+    const diameter = Math.max(buttonElement.clientWidth, buttonElement.clientHeight);
+    const radius = diameter / 2;
+
+    console.log(event.clientX)
+    console.log(event.clientY)
+
+    circle.style.width = `${diameter}px`
+    circle.style.height = `${diameter}px`
+    circle.style.left = `${event.clientX - (buttonElement.offsetLeft + radius)}px`;
+    circle.style.top = `${event.clientY - (buttonElement.offsetTop + radius)}px`;
+    circle.classList.add(styles.ripple);
+
+    const oldRippleExist = buttonElement.getElementsByClassName(styles.ripple)[0];
+
+    if(oldRippleExist) oldRippleExist.remove();
+
+    buttonElement.appendChild(circle);
 }

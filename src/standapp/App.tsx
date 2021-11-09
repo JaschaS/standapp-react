@@ -28,9 +28,9 @@ export default function App() {
         <H1>I am Centered</H1>
       </Center>
 
-      <Button type='Primary' text='Continue' />
-      <Button type='Secondary' text='Continue' />
-      <Button type='Text' text='Continue' />
+      <Button type='primary' text='Continue' />
+      <Button type='secondary' text='Continue' />
+      <Button type='text' text='Continue' />
 
     </div>
   );
